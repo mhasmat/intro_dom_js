@@ -8,3 +8,48 @@ const descripcion_normal = "Los Pokémon de tipo normal abarcan la mayor cantida
 const descripcion_fuego = "Los Pokémon de tipo tipo fuego basan sus ataques, principalmente, en el control de este elemento; y la mayoría pueden quemar al Pokémon oponente, mientras que ellos no sufren quemaduras. Son apasionados y, algunos, de mal carácter (como el Charizard de Ash); viven en cuevas o zonas rocosas y muy áridas; y, más probable, aun cerca de volcanes activos. Sin embargo, los únicos Pokémon que aparentemente suelen andar por lugares verdes como las praderas, son Ponyta y Rapidash, pudiendo ser que estos lugares les permiten galopar sin obstáculos. También, algunos son más dóciles, como Growlithe, Vulpix y sus respectivas evoluciones."
 
 /* Comienza a escribir su código aquí */
+// Funcion
+function cards(poketype) {
+    if (poketype === 'agua') {
+        const aguaClase = document.querySelector('article');        
+        aguaClase.classList.remove('planta');
+        aguaClase.classList.add('agua');
+
+        const textoHeader = document.querySelector('.header');
+        textoHeader.textContent = "Tipo Agua";
+
+        const descriptionType = document.querySelector('#descripcion');
+        descriptionType.textContent = `${descripcion_agua}`;
+
+        const imgType = document.querySelector('article img');
+        imgType.src = 'images/water_type.png';
+    }
+    
+    if (poketype === 'electricidad') {
+        const aguaClase = document.querySelector('article');        
+        aguaClase.classList.remove('planta');
+        aguaClase.classList.add('electricidad');
+
+        const textoHeader = document.querySelector('.header');
+        textoHeader.textContent = "Tipo Electrico";
+
+        const descriptionType = document.querySelector('#descripcion');
+        descriptionType.textContent = `${descripcion_electrico}`;
+
+        const imgType = document.querySelector('article img');
+        imgType.src = 'images/electric_type.png';
+    }
+
+}
+
+
+// Llamo 1 x 1 a los botones
+const btnPlanta = document.querySelector("#btnPlanta");
+const btnAgua = document.querySelector('#btnAgua');
+const btnElectricidad = document.querySelector('#btnElectricidad');
+const btnNormal = document.querySelector('#btnNormal');
+const btnFuego = document.querySelector('#btnFuego');
+
+// Agrego los listeners
+btnAgua.addEventListener('click', cards('agua'));
+btnElectricidad.addEventListener('click', cards('electricidad'));
