@@ -14,3 +14,9 @@ Leer el título del "header" del post e imprimirlo en consola.
 Cambiar título utilizando javascript por otro cualquiera.
 
 */
+
+const tituloDeMiPost = document.querySelector(".post-header");
+
+console.log(`Resultado: ${tituloDeMiPost.textContent}`);
+
+tituloDeMiPost.textContent = `Título alterado con JS`;
