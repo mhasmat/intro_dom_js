@@ -9,38 +9,94 @@ const descripcion_fuego = "Los Pokémon de tipo tipo fuego basan sus ataques, pr
 
 /* Comienza a escribir su código aquí */
 // Funcion
-function cards(poketype) {
-    if (poketype === 'agua') {
-        const aguaClase = document.querySelector('article');        
-        aguaClase.classList.remove('planta');
-        aguaClase.classList.add('agua');
+// function cards(poketype) {
+//     switch(poketype) {
+//         case 'agua':
+//             const card = document.querySelector('article');
+//             card.classList.remove('planta');
+//             card.classList.add('agua');
 
-        const textoHeader = document.querySelector('.header');
-        textoHeader.textContent = "Tipo Agua";
+//             const textoHeader = document.querySelector('.header');
+//             textoHeader.textContent = "Tipo Agua";
 
-        const descriptionType = document.querySelector('#descripcion');
-        descriptionType.textContent = `${descripcion_agua}`;
+//             const descriptionType = document.querySelector('#descripcion');
+//             descriptionType.textContent = `${descripcion_agua}`;
 
-        const imgType = document.querySelector('article img');
-        imgType.src = 'images/water_type.png';
-    }
-    
-    if (poketype === 'electricidad') {
-        const aguaClase = document.querySelector('article');        
-        aguaClase.classList.remove('planta');
-        aguaClase.classList.add('electricidad');
+//             const imgType = document.querySelector('article img');
+//             imgType.src = 'images/water_type.png';
+            
+//             break;
+      
+//         case 'electricidad':
+//             card = document.querySelector('article');        
+//             card.classList.remove('planta');
+//             card.classList.add('electricidad');
 
-        const textoHeader = document.querySelector('.header');
-        textoHeader.textContent = "Tipo Electrico";
+//             textoHeader = document.querySelector('.header');
+//             textoHeader.textContent = "Tipo Electrico";
 
-        const descriptionType = document.querySelector('#descripcion');
-        descriptionType.textContent = `${descripcion_electrico}`;
+//             descriptionType = document.querySelector('#descripcion');
+//             descriptionType.textContent = `${descripcion_electrico}`;
 
-        const imgType = document.querySelector('article img');
-        imgType.src = 'images/electric_type.png';
-    }
+//             imgType = document.querySelector('article img');
+//             imgType.src = 'images/electric_type.png';
+          
+//             break;
 
-}
+//         case 'normal':
+//             card = document.querySelector('article');
+//             card.classList.remove('planta');
+//             card.classList.add('normal');
+
+//             textoHeader = document.querySelector('.header');
+//             textoHeader.textContent = "Tipo Normal";
+
+//             descriptionType = document.querySelector('#descripcion');
+//             descriptionType.textContent = `${descripcion_normal}`;
+
+//             imgType = document.querySelector('article img');
+//             imgType.src = 'images/normal_type.png';
+            
+//             break;
+
+//         case 'fuego':
+//             card = document.querySelector('article');
+//             card.classList.remove('planta');
+//             card.classList.add('fuego');
+
+//             textoHeader = document.querySelector('.header');
+//             textoHeader.textContent = "Tipo Fuego";
+
+//             descriptionType = document.querySelector('#descripcion');
+//             descriptionType.textContent = `${descripcion_fuego}`;
+
+//             imgType = document.querySelector('article img');
+//             imgType.src = 'images/fire_type.png';
+            
+//             break;
+        
+//         case 'planta':
+//             card = document.querySelector('article');
+//             card.classList.remove('planta');
+//             card.classList.add('planta');
+
+//             textoHeader = document.querySelector('.header');
+//             textoHeader.textContent = "Tipo Planta";
+
+//             descriptionType = document.querySelector('#descripcion');
+//             descriptionType.textContent = `${descripcion_planta}`;
+
+//             imgType = document.querySelector('article img');
+//             imgType.src = 'images/grass_type.png';
+            
+//             break;
+        
+//         default:
+//             alert('Error! Valor no existe.');
+//             break;
+//     }    
+//     return poketype;
+// }
 
 
 // Llamo 1 x 1 a los botones
@@ -51,5 +107,74 @@ const btnNormal = document.querySelector('#btnNormal');
 const btnFuego = document.querySelector('#btnFuego');
 
 // Agrego los listeners
-btnAgua.addEventListener('click', cards('agua'));
-btnElectricidad.addEventListener('click', cards('electricidad'));
+btnPlanta.addEventListener('click', function() {
+    const card = document.querySelector('article');
+    card.classList.remove('fuego', 'normal', 'agua', 'electricidad');
+    card.classList.add('planta');
+
+    const textoHeader = document.querySelector('.header');
+    textoHeader.textContent = "Tipo Planta";
+
+    const descriptionType = document.querySelector('#descripcion');
+    descriptionType.textContent = `${descripcion_planta}`;
+
+    const imgType = document.querySelector('article img');
+    imgType.src = 'images/grass_type.png';
+});
+
+btnAgua.addEventListener('click', function() {
+    const card = document.querySelector('article');
+    card.classList.remove('fuego', 'normal', 'planta', 'electricidad');
+    card.classList.add('agua');
+    
+    const textoHeader = document.querySelector('.header');
+    textoHeader.textContent = "Tipo Agua";
+
+    const descriptionType = document.querySelector('#descripcion');
+    descriptionType.textContent = `${descripcion_agua}`;
+
+    const imgType = document.querySelector('article img');
+    imgType.src = 'images/water_type.png';
+});
+btnElectricidad.addEventListener('click', function() {
+    const card = document.querySelector('article');        
+    card.classList.remove('fuego', 'normal', 'agua', 'planta');
+    card.classList.add('electricidad');
+
+    const textoHeader = document.querySelector('.header');
+    textoHeader.textContent = "Tipo Electrico";
+
+    const descriptionType = document.querySelector('#descripcion');
+    descriptionType.textContent = `${descripcion_electrico}`;
+
+    const imgType = document.querySelector('article img');
+    imgType.src = 'images/electric_type.png';
+});
+btnNormal.addEventListener('click', function() {
+    const card = document.querySelector('article');
+    card.classList.remove('fuego', 'planta', 'agua', 'electricidad');
+    card.classList.add('normal');
+
+    const textoHeader = document.querySelector('.header');
+    textoHeader.textContent = "Tipo Normal";
+
+    const descriptionType = document.querySelector('#descripcion');
+    descriptionType.textContent = `${descripcion_normal}`;
+
+    const imgType = document.querySelector('article img');
+    imgType.src = 'images/normal_type.png';
+});
+btnFuego.addEventListener('click', function() {
+    const card = document.querySelector('article');
+    card.classList.remove('planta', 'normal', 'agua', 'electricidad');
+    card.classList.add('fuego');
+
+    const textoHeader = document.querySelector('.header');
+    textoHeader.textContent = "Tipo Fuego";
+
+    const descriptionType = document.querySelector('#descripcion');
+    descriptionType.textContent = `${descripcion_fuego}`;
+
+    const imgType = document.querySelector('article img');
+    imgType.src = 'images/fire_type.png';
+});
